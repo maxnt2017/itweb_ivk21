@@ -1,1 +1,257 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Яскравий червоний градієнт */
+    background: linear-gradient(135deg, #FF4500, #FF6347, #DC143C, #B22222);
+    background-size: 400% 400%;
+    color: #333;
+    animation: dynamicRedGradient 20s ease infinite alternate;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
+@keyframes dynamicRedGradient {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.main-header {
+    background-color: rgba(178, 34, 34, 0.95); /* Насичений темно-червоний */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    margin-bottom: 40px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 3.5em;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+.text-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    line-height: 2;
+    font-size: 1.2em;
+    text-align: justify;
+    border: 2px solid #FF6347; /* Тонка червона рамка */
+}
+
+.button-group-main, .button-group-widgets {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.green-button { /* Змінюємо на червоний, але назва класу залишається green-button для простоти */
+    display: inline-block;
+    background: linear-gradient(135deg, #FF4500, #DC143C); /* Яскравий червоний градієнт */
+    color: white;
+    padding: 18px 35px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.green-button:hover {
+    background: linear-gradient(135deg, #CD5C5C, #8B0000); /* Темніший червоний при наведенні */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Анімація для кнопки */
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Білий блик */
+    transition: all 0.4s ease;
+    transform: skewX(-20deg);
+}
+
+.animated-button:hover::before {
+    left: 100%;
+}
+
+.widget-controls {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #FF6347;
+}
+
+.widget-controls h2 {
+    color: #DC143C; /* Червоний заголовок */
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.widgets-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.widget {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    border: 2px solid #FF6347;
+    position: relative;
+}
+
+.widget:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.widget h2 {
+    color: #DC143C; /* Червоний заголовок */
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.widget iframe {
+    border: none;
+    width: 100%;
+    min-height: 450px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+}
+
+/* Стилізація для замінених віджетів */
+.weather-widget-content,
+.college-widget-content {
+    width: 100%;
+    min-height: 450px;
+    background: linear-gradient(45deg, #ffe6e6, #f0c2c2); /* Світло-червоний градієнт */
+    border: 3px dashed #DC143C; /* Виразна пунктирна червона рамка */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #DC143C;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.main-footer {
+    background-color: rgba(178, 34, 34, 0.95); /* Насичений темно-червоний */
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    position: relative;
+    z-index: 10;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.5em;
+    }
+    .text-section {
+        padding: 25px;
+        font-size: 1em;
+    }
+    .green-button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+    .widgets-grid {
+        grid-template-columns: 1fr;
+    }
+    .widget h2 {
+        font-size: 1.8em;
+    }
+    .widget iframe, .paint-placeholder, .weather-widget-content, .college-widget-content {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+    .text-section {
+        padding: 20px;
+    }
+    .green-button {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    .button-group-main, .button-group-widgets {
+        gap: 10px;
+    }
+    .widget iframe, .paint-placeholder, .weather-widget-content, .college-widget-content {
+        min-height: 300px;
+    }
+}
