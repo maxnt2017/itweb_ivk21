@@ -1,1 +1,107 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova: Ваш Портал у Світ Інновацій</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <h1>TechNova: Відкрийте Майбутнє Технологій!</h1>
+    </header>
 
+    <main class="container">
+        <section class="text-section">
+            <p>
+                Ласкаво просимо до **TechNova** – вашого провідника у захопливий світ сучасних **інформаційних технологій**! Ми живемо в епоху безпрецедентних змін, де **інновації** щодня формують наше майбутнє. Від проривів у **штучному інтелекті** та **машинному навчанні** до розвитку **хмарних обчислень** та **кібербезпеки** – IT-галузь є серцем глобального прогресу.</p>
+            <p>Україна міцно закріпилася на світовій IT-мапі завдяки таланту та стійкості своїх фахівців. Наші розробники, інженери та стартапери роблять значний внесок у створення передових технологій, що впливають на мільйони життів. Цей портал створений, щоб надати вам доступ до найважливішої інформації та інструментів, що допоможуть вам залишатися в курсі подій і використовувати потенціал цифрового світу.
+            </p>
+        </section>
+
+        <section class="button-group-main">
+            <a href="https://dou.ua/" target="_blank" class="green-button animated-button">IT-новини DOU</a>
+            <a href="https://www.epravda.com.ua/tags/it/" target="_blank" class="green-button animated-button">Економічна Правда: IT</a>
+            <a href="https://www.youtube.com/@TheCodeReport" target="_blank" class="green-button animated-button">The Code Report (YouTube)</a>
+        </section>
+
+        <section class="widget-controls">
+            <h2>Дослідіть Інтерактивні Сервіси</h2>
+            <div class="button-group-widgets">
+                <button class="green-button animated-button" onclick="toggleWidget('alertsMap')">Карта Тривог</button>
+                <button class="green-button animated-button" onclick="toggleWidget('weatherForecast')">Прогноз Погоди (Стрий)</button>
+                <button class="green-button animated-button" onclick="toggleWidget('googleCalendar')">Google Календар</button>
+                <button class="green-button animated-button" onclick="toggleWidget('chessCom')">Шахи Online</button>
+                <button class="green-button animated-button" onclick="toggleWidget('deeplTranslator')">Deepl Перекладач</button>
+                <button class="green-button animated-button" onclick="toggleWidget('stryiCollege')">Стрийський Коледж</button>
+                <button class="green-button animated-button" onclick="toggleWidget('chatGptSite')">ChatGPT | OpenAI</button>
+            </div>
+        </section>
+
+        <section class="widgets-display">
+            <div id="alertsMap" class="widget green-widget hidden">
+                <h2>Карта Повітряної Тривоги України</h2>
+                <iframe src="https://alerts.in.ua/map" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div id="weatherForecast" class="widget green-widget hidden">
+                <h2>Прогноз Погоди (Стрий)</h2>
+                <iframe src="https://www.accuweather.com/uk/ua/stryi/324647/weather-forecast/324647" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div id="googleCalendar" class="widget green-widget hidden">
+                <h2>Google Календар</h2>
+                <iframe src="https://calendar.google.com/calendar/embed?src=uk.ukrainian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FKiev" style="border: 0;" frameborder="0" scrolling="no"></iframe>
+            </div>
+
+            <div id="chessCom" class="widget green-widget hidden">
+                <h2>Шахи Online (Chess.com)</h2>
+                <iframe src="https://www.chess.com/play/computer" frameborder="0"></iframe>
+            </div>
+
+            <div id="deeplTranslator" class="widget green-widget hidden">
+                <h2>Deepl Перекладач</h2>
+                <iframe src="https://www.deepl.com/translator" frameborder="0"></iframe>
+            </div>
+
+            <div id="stryiCollege" class="widget green-widget hidden">
+                <h2>Стрийський фаховий коледж</h2>
+                <iframe src="http://sfk.lviv.ua/" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div id="chatGptSite" class="widget green-widget hidden">
+                <h2>ChatGPT | OpenAI</h2>
+                <iframe src="https://chat.openai.com/" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Ivanka Ladychak, всі права захищені!</p>
+    </footer>
+
+    <script>
+        // Анімація фону
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            body.style.backgroundSize = '400% 400%';
+            body.style.animation = 'dynamicRedGradient 20s ease infinite alternate';
+        });
+
+        // Функція для показу/приховування віджетів
+        function toggleWidget(widgetId) {
+            const widgets = document.querySelectorAll('.widgets-display .widget');
+            widgets.forEach(widget => {
+                if (widget.id === widgetId) {
+                    widget.classList.toggle('hidden');
+                    if (!widget.classList.contains('hidden')) {
+                        widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                } else {
+                    widget.classList.add('hidden'); // Приховуємо інші віджети
+                }
+            });
+        }
+    </script>
+</body>
+</html>
